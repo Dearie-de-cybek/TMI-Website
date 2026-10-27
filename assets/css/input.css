@@ -1,0 +1,438 @@
+@import "tailwindcss";
+
+@source "../../index.html";
+@source "../../pages";
+@source "../../assets/js";
+
+/* Page compositions. Unlayered, so they sit above Tailwind's layers. */
+@import "./layout.css";
+
+/* ===========================================================================
+   TwainMan Ministry International - design tokens
+
+   The palette, the two type families and the shape rules are the church's own,
+   carried over from the mobile app's design language (TMI/docs/DESIGN.md) so
+   the website and the app read as one ministry: a deep aubergine purple for the
+   ministry's voice, warm gold for the marks that organise a page, on a warm
+   ivory ground. Hierarchy comes from type and space, not from boxes.
+   =========================================================================== */
+
+@theme {
+  /* --- ground ------------------------------------------------------------ */
+  --color-ivory: #f8f5f0;
+  --color-ivory-raised: #fffdf9;
+  --color-ivory-sunk: #f0eaf0;
+
+  /* --- ink (carries a trace of purple so text belongs to the family) ------ */
+  --color-ink: #1c141f;
+  --color-ink-soft: #5e5162;
+  /* Darkened from the app's #8b7f8e: at 13px on ivory that was 3.5:1, which
+     does not clear WCAG AA for body text. This is 5.1:1. */
+  --color-ink-faint: #716476;
+  --color-rule: #e4d9e6;
+  --color-rule-strong: #cfc0d1;
+
+  /* --- purple: the ministry's voice -------------------------------------- */
+  --color-purple: #4a2a5a;
+  --color-purple-lift: #5c3570;
+  --color-plum: #241430;
+  --color-plum-deep: #1b0f24;
+  --color-lilac: #c4a5d6;
+  --color-band-purple: #f3edf6;
+
+  /* --- gold: eyebrows, rules, Scripture marks ----------------------------
+     The gold that carries TEXT is the palette's gold700, not the gold600 the
+     app uses for the same job: an 11px uppercase eyebrow on ivory needs 4.5:1
+     and gold600 reaches only 3.9:1. gold700 is 5.7:1 on ivory and clears every
+     ground the site uses. The brighter golds below stay for fills, for marks
+     on the plum plate, and for anything that is not text.                    */
+  --color-gold: #7a5c1e;
+  --color-gold-bright: #c19a38;
+  --color-gold-lift: #d9b463;
+  --color-band-gold: #faf4e6;
+
+  /* --- type -------------------------------------------------------------- */
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
+    Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* --- shape: corners are tight; avatars are the only circles ------------ */
+  --radius-tight: 4px;
+
+  /* The one gutter. Held as a token because absolutely positioned elements
+     resolve `left`/`right` against the padding box and cannot inherit it. */
+  --gutter: clamp(1.25rem, 5vw, 5.5rem);
+
+  /* --- motion system ------------------------------------------------------
+     Four durations and two curves for the whole site. Anything that needs a
+     fifth is probably doing too much.                                        */
+  --ease-out-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out-editorial: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-tap: 160ms;
+  --duration-swap: 320ms;
+  --duration-reveal: 620ms;
+  --duration-settle: 900ms;
+}
+
+/* ===========================================================================
+   Base
+   =========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* The hero's sticky stage and full-bleed plates must never be able to
+       push the page sideways. */
+    overflow-x: clip;
+  }
+
+  /* Fraunces is a variable face: ask for the editorial cut deliberately. */
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 24, "WONK" 1, "opsz" 48;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-purple);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Dark surfaces need the focus ring to invert or it disappears. */
+  .on-plum :focus-visible,
+  .on-photo :focus-visible {
+    outline-color: var(--color-gold-lift);
+  }
+
+  ::selection {
+    background-color: var(--color-purple);
+    color: #fff;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Anything scroll-driven collapses to a static, readable composition. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ===========================================================================
+   Components
+   =========================================================================== */
+
+@layer components {
+  /* --- skip link --------------------------------------------------------- */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    background: var(--color-plum);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-tight);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: transform var(--duration-tap) var(--ease-out-editorial);
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  /* --- the gold eyebrow: the church's most recognisable typographic mark -- */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  .on-plum .eyebrow,
+  .on-photo .eyebrow {
+    color: var(--color-gold-lift);
+  }
+
+  /* --- display sizes ------------------------------------------------------
+     Editorial headlines are set tight and allowed to be large; the text face
+     stays modest so the contrast between them does the work.                 */
+  .display-xl {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 144;
+    font-size: clamp(2.75rem, 7.4vw, 6.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+  }
+  .display-lg {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 24, "WONK" 1, "opsz" 96;
+    font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+  .display-md {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 28, "WONK" 1, "opsz" 48;
+    font-size: clamp(1.625rem, 3vw, 2.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  .display-sm {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 30, "WONK" 0, "opsz" 36;
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .lede {
+    font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+  }
+
+  .meta {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--color-ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* --- hairlines instead of cards ---------------------------------------- */
+  .rule {
+    border: 0;
+    border-top: 1px solid var(--color-rule);
+    margin: 0;
+  }
+  .rule-gold {
+    border: 0;
+    border-top: 1px solid color-mix(in srgb, var(--color-gold) 45%, transparent);
+  }
+  .on-plum .rule,
+  .on-photo .rule {
+    border-top-color: color-mix(in srgb, #fff 18%, transparent);
+  }
+
+  /* --- the plum plate: an instrument, not content ------------------------ */
+  .plate {
+    background-color: var(--color-plum);
+    color: #f6f1f7;
+    border-radius: var(--radius-tight);
+  }
+
+  /* --- buttons: square, not pills ---------------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.8125rem 1.5rem;
+    border-radius: var(--radius-tight);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    text-align: center;
+    transition: background-color var(--duration-tap) var(--ease-out-editorial),
+      color var(--duration-tap) var(--ease-out-editorial),
+      border-color var(--duration-tap) var(--ease-out-editorial),
+      opacity var(--duration-tap) var(--ease-out-editorial);
+  }
+  .btn-primary {
+    background-color: var(--color-purple);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-purple-lift);
+  }
+  .btn-gold {
+    background-color: var(--color-gold-bright);
+    color: var(--color-ink);
+  }
+  .btn-gold:hover {
+    background-color: var(--color-gold-lift);
+  }
+  .btn-ghost {
+    border: 1px solid var(--color-rule-strong);
+    color: var(--color-ink);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-purple);
+    color: var(--color-purple);
+  }
+  .on-photo .btn-ghost,
+  .on-plum .btn-ghost {
+    border-color: color-mix(in srgb, #fff 45%, transparent);
+    color: #fff;
+  }
+  .on-photo .btn-ghost:hover,
+  .on-plum .btn-ghost:hover {
+    border-color: #fff;
+    background-color: color-mix(in srgb, #fff 12%, transparent);
+    color: #fff;
+  }
+
+  /* --- a text link that belongs to a printed page ------------------------ */
+  .link-underline {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-purple);
+    padding-bottom: 2px;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size var(--duration-swap) var(--ease-out-editorial);
+  }
+  .link-underline:hover {
+    background-size: 0% 1px;
+  }
+  .on-plum .link-underline,
+  .on-photo .link-underline {
+    color: var(--color-gold-lift);
+  }
+
+  /* --- paper grain -------------------------------------------------------
+     A 64px tile at 3KB. No filters, no animation: it is a surface, not an
+     effect.                                                                 */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/texture/grain.png");
+    background-size: 64px 64px;
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .grain-light::after {
+    mix-blend-mode: soft-light;
+    opacity: 0.4;
+  }
+
+  /* --- editorial numeral, used down lists -------------------------------- */
+  .numeral {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 36;
+    font-size: 0.875rem;
+    color: var(--color-gold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* --- a value the church still has to supply ---------------------------- */
+  .to-confirm {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    border-bottom: 1px dashed
+      color-mix(in srgb, var(--color-gold) 60%, transparent);
+    padding-bottom: 1px;
+  }
+  .on-plum .to-confirm,
+  .on-photo .to-confirm {
+    color: var(--color-gold-lift);
+    border-bottom-color: color-mix(in srgb, var(--color-gold-lift) 60%, transparent);
+  }
+
+  /* --- photographic scrim: bottom-weighted so the picture keeps its light - */
+  .scrim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--color-plum-deep) 86%, transparent) 0%,
+      color-mix(in srgb, var(--color-plum-deep) 58%, transparent) 26%,
+      color-mix(in srgb, var(--color-plum-deep) 16%, transparent) 55%,
+      transparent 78%
+    );
+  }
+}
+
+/* ===========================================================================
+   Utilities
+   =========================================================================== */
+
+@layer utilities {
+  /* The one gutter: everything aligns down the page. */
+  .gutter {
+    padding-inline: var(--gutter);
+  }
+  .measure {
+    max-width: 62ch;
+  }
+  .measure-tight {
+    max-width: 46ch;
+  }
+
+  /* Section entrance. Content is visible by default and only hidden once JS
+     has confirmed it can animate it back in - so nothing is ever stranded
+     behind a class that never arrives. */
+  .js-reveal [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity var(--duration-reveal) var(--ease-out-editorial),
+      transform var(--duration-reveal) var(--ease-out-editorial);
+  }
+  .js-reveal [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js-reveal [data-reveal] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Image that lifts very slightly under the pointer. Transform only. */
+  .img-lift img {
+    transition: transform var(--duration-settle) var(--ease-out-editorial);
+    will-change: transform;
+  }
+  @media (hover: hover) {
+    .img-lift:hover img,
+    .img-lift:focus-visible img {
+      transform: scale(1.035);
+    }
+  }
+}

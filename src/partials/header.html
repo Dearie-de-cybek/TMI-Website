@@ -1,0 +1,74 @@
+<!-- @component: navigation -------------------------------------------- -->
+    <header class="site-header" data-header>
+      <nav class="site-nav gutter" aria-label="Primary">
+        <a class="nav-wordmark" href="{{BASE}}index.html" data-nav="home">
+          <img
+            src="{{BASE}}assets/images/photos/wordmark.png"
+            width="528"
+            height="204"
+            alt="TwainMan Ministry International"
+          />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="{{BASE}}index.html" data-nav="home">Home</a></li>
+          <li><a href="{{BASE}}pages/about.html" data-nav="about">About</a></li>
+          <li><a href="{{BASE}}pages/events.html" data-nav="events">Events</a></li>
+          <li><a href="{{BASE}}pages/gallery.html" data-nav="gallery">Gallery</a></li>
+          <li><a href="{{BASE}}pages/gethsemane.html" data-nav="gethsemane">Gethsemane</a></li>
+          <li><a href="{{BASE}}pages/app.html" data-nav="app">Church app</a></li>
+        </ul>
+
+        <a class="btn btn-primary nav-cta" href="{{BASE}}pages/about.html#visit"
+          >Plan your visit</a
+        >
+
+        <button
+          class="nav-toggle"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"
+            ><span></span><span></span></span
+          >
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- @component: navigation (mobile overlay) ---------------------------- -->
+    <div class="mobile-menu on-plum" id="mobile-menu" data-menu hidden>
+      <div class="mobile-menu-inner gutter grain grain-light">
+        <p class="eyebrow">TwainMan Ministry International</p>
+        <ul class="mobile-menu-links">
+          <li><span class="numeral">01</span><a href="{{BASE}}index.html" data-nav="home">Home</a></li>
+          <li>
+            <span class="numeral">02</span><a href="{{BASE}}pages/about.html" data-nav="about">About</a>
+          </li>
+          <li>
+            <span class="numeral">03</span><a href="{{BASE}}pages/events.html" data-nav="events">Events</a>
+          </li>
+          <li>
+            <span class="numeral">04</span
+            ><a href="{{BASE}}pages/gallery.html" data-nav="gallery">Gallery</a>
+          </li>
+          <li>
+            <span class="numeral">05</span
+            ><a href="{{BASE}}pages/gethsemane.html" data-nav="gethsemane">Gethsemane</a>
+          </li>
+          <li>
+            <span class="numeral">06</span><a href="{{BASE}}pages/app.html" data-nav="app">Church app</a>
+          </li>
+        </ul>
+        <hr class="rule" />
+        <a class="btn btn-gold mobile-menu-cta" href="{{BASE}}pages/about.html#visit"
+          >Plan your visit</a
+        >
+        <p class="mobile-menu-address meta" data-content="church.addressOneLine">
+          Ambrose Omafuvwe Street, Opposite Building Material Market, OKP Road,
+          Asaba
+        </p>
+      </div>
+    </div>

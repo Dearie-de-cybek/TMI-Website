@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Events &mdash; TwainMan Ministry International</title>
+    <meta name="description" content="What is on at TwainMan Ministry International, Asaba: the monthly service Blessing the Work of Your Hands, every second Sunday at 8:00am." />
+    <meta name="theme-color" content="#f8f5f0" />
+    <link rel="icon" href="../assets/images/photos/wordmark.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/output.css" />
+
+    <!-- Decided before first paint so content never flashes in and back out.
+         Without JavaScript, or with reduced motion, nothing is ever hidden. -->
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js-reveal");
+      }
+    </script>
+
+
+
+    <!--
+      Only facts the church has published itself. Service times, telephone and
+      social accounts are deliberately absent until the church supplies them.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Church",
+        "name": "TwainMan Ministry International",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ambrose Omafuvwe Street, opposite Building Material Market, OKP Road",
+          "addressLocality": "Asaba",
+          "addressRegion": "Delta State",
+          "addressCountry": "NG"
+        }
+      }
+    </script>
+  
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- @component: navigation -------------------------------------------- -->
+    <header class="site-header" data-header>
+      <nav class="site-nav gutter" aria-label="Primary">
+        <a class="nav-wordmark" href="../index.html" data-nav="home">
+          <img
+            src="../assets/images/photos/wordmark.png"
+            width="528"
+            height="204"
+            alt="TwainMan Ministry International"
+          />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="../index.html" data-nav="home">Home</a></li>
+          <li><a href="../pages/about.html" data-nav="about">About</a></li>
+          <li><a href="../pages/events.html" data-nav="events" aria-current="page">Events</a></li>
+          <li><a href="../pages/gallery.html" data-nav="gallery">Gallery</a></li>
+          <li><a href="../pages/gethsemane.html" data-nav="gethsemane">Gethsemane</a></li>
+          <li><a href="../pages/app.html" data-nav="app">Church app</a></li>
+        </ul>
+
+        <a class="btn btn-primary nav-cta" href="../pages/about.html#visit"
+          >Plan your visit</a
+        >
+
+        <button
+          class="nav-toggle"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"
+            ><span></span><span></span></span
+          >
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- @component: navigation (mobile overlay) ---------------------------- -->
+    <div class="mobile-menu on-plum" id="mobile-menu" data-menu hidden>
+      <div class="mobile-menu-inner gutter grain grain-light">
+        <p class="eyebrow">TwainMan Ministry International</p>
+        <ul class="mobile-menu-links">
+          <li><span class="numeral">01</span><a href="../index.html" data-nav="home">Home</a></li>
+          <li>
+            <span class="numeral">02</span><a href="../pages/about.html" data-nav="about">About</a>
+          </li>
+          <li>
+            <span class="numeral">03</span><a href="../pages/events.html" data-nav="events" aria-current="page">Events</a>
+          </li>
+          <li>
+            <span class="numeral">04</span
+            ><a href="../pages/gallery.html" data-nav="gallery">Gallery</a>
+          </li>
+          <li>
+            <span class="numeral">05</span
+            ><a href="../pages/gethsemane.html" data-nav="gethsemane">Gethsemane</a>
+          </li>
+          <li>
+            <span class="numeral">06</span><a href="../pages/app.html" data-nav="app">Church app</a>
+          </li>
+        </ul>
+        <hr class="rule" />
+        <a class="btn btn-gold mobile-menu-cta" href="../pages/about.html#visit"
+          >Plan your visit</a
+        >
+        <p class="mobile-menu-address meta" data-content="church.addressOneLine">
+          Ambrose Omafuvwe Street, Opposite Building Material Market, OKP Road,
+          Asaba
+        </p>
+      </div>
+    </div>
+
+    <main id="main">
+<header class="page-header gutter">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li aria-current="page">Events</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">What is on</p>
+        <h1 class="display-lg">Events.</h1>
+        <p class="lede measure">
+          Dated events are published here and in the church app, where you can
+          add them to your calendar. Only what the church has actually
+          announced appears on this page.
+        </p>
+      </header>
+
+      <!-- @component: events/featured ------------------------------------ -->
+      <section class="page-section gutter" aria-labelledby="recurring-title">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Recurring</p>
+          <h2 class="display-md" id="recurring-title">Every month.</h2>
+          <hr class="rule" />
+        </header>
+
+        <!-- @loop: $events->recurring -->
+        <article class="event-featured" data-reveal>
+          <figure class="event-featured-figure img-lift">
+            <img
+              src="../assets/images/photos/flyer-blessing-the-work-700.webp"
+              srcset="
+                ../assets/images/photos/flyer-blessing-the-work-400.webp   400w,
+                ../assets/images/photos/flyer-blessing-the-work-700.webp   700w,
+                ../assets/images/photos/flyer-blessing-the-work-1024.webp 1024w
+              "
+              sizes="(min-width: 900px) 42vw, 90vw"
+              width="700"
+              height="700"
+              loading="lazy"
+              decoding="async"
+              alt="The church's flyer for Blessing the Work of Your Hands: every second Sunday at 8:00am, ministering Pastor Patrick Evbomoen."
+            />
+            <figcaption class="meta">The church's own flyer.</figcaption>
+          </figure>
+
+          <div class="event-featured-body">
+            <p class="eyebrow">Monthly service of consecration</p>
+            <h3 class="display-md">Blessing the Work of Your&nbsp;Hands</h3>
+
+            <dl class="event-facts">
+              <div>
+                <dt>When</dt>
+                <dd>Every second Sunday, <time>8:00am</time></dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd data-content="church.addressOneLine">
+                  Ambrose Omafuvwe Street, Opposite Building Material Market,
+                  OKP Road, Asaba
+                </dd>
+              </div>
+              <div>
+                <dt>Ministering</dt>
+                <dd>Pastor Patrick Evbomoen</dd>
+              </div>
+              <div>
+                <dt>Registration</dt>
+                <dd>Not required &mdash; everyone is welcome.</dd>
+              </div>
+            </dl>
+
+            <p class="measure">
+              A service of consecration for the work of our hands. Bring
+              something that represents your work.
+            </p>
+
+            <div class="event-actions">
+              <a class="btn btn-primary" href="../pages/about.html#visit"
+                >How to find us</a
+              >
+              <a class="btn btn-ghost" href="../pages/app.html"
+                >Add it in the app</a
+              >
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- @component: events/upcoming ------------------------------------
+           Data-driven in Laravel: @forelse ($events as $event) ... @empty.
+           Until then this is the designed empty state, not a placeholder card.
+      ------------------------------------------------------------------- -->
+      <section class="page-section gutter" aria-labelledby="upcoming-title">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Dated</p>
+          <h2 class="display-md" id="upcoming-title">Coming up.</h2>
+          <hr class="rule" />
+        </header>
+
+        <div class="needs-content" data-reveal>
+          <p class="eyebrow">Nothing published yet</p>
+          <p>
+            The church has not announced any dated events for this page. As soon
+            as it does, each one will appear here with its date, time, venue and
+            &mdash; where it applies &mdash; a way to register. No dates have
+            been invented to fill the space.
+          </p>
+        </div>
+      </section>
+
+      <!-- @component: events/past ---------------------------------------- -->
+      <section
+        class="page-section gutter section-about"
+        aria-labelledby="past-title"
+        style="background-color: var(--color-ivory-sunk)"
+      >
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Been and gone</p>
+          <h2 class="display-md" id="past-title">Previously.</h2>
+          <hr class="rule" />
+        </header>
+
+        <!-- @loop: $events->past -->
+        <div class="event-empty-body" data-reveal style="padding-top: 0">
+          <p class="eyebrow">2024</p>
+          <div>
+            <p class="display-sm" style="margin: 0 0 0.5rem">
+              Gethsemane Camp Meeting
+            </p>
+            <p class="measure" style="margin: 0">
+              The ministry's annual camp meeting. Pastor Patrick Evbomoen
+              ministering.
+            </p>
+          </div>
+          <a class="link-underline" href="../pages/gethsemane.html"
+            >About Gethsemane<span aria-hidden="true">&rarr;</span></a
+          >
+        </div>
+      </section>
+    </main>
+
+<!-- @component: footer ------------------------------------------------- -->
+    <footer class="site-footer on-plum grain grain-light">
+      <div class="footer-inner gutter">
+        <div class="footer-identity">
+          <img
+            class="footer-wordmark"
+            src="../assets/images/photos/wordmark.png"
+            width="528"
+            height="204"
+            loading="lazy"
+            alt="TwainMan Ministry International"
+          />
+          <p class="footer-scripture">
+            &ldquo;I was glad when they said unto me, Let us go into the house of
+            the <span class="sc">Lord</span>.&rdquo;
+            <span class="meta">Psalm 122:1</span>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h2 class="eyebrow">Find us</h2>
+          <address class="footer-address">
+            <span data-content="church.street">Ambrose Omafuvwe Street</span><br />
+            <span data-content="church.landmark"
+              >Opposite Building Material Market, OKP Road</span
+            ><br />
+            <span data-content="church.city">Asaba</span>,
+            <span data-content="church.region">Delta State</span><br />
+            <span data-content="church.country">Nigeria</span>
+          </address>
+          <p class="footer-confirm">
+            <span class="to-confirm">Telephone to confirm</span><br />
+            <span class="to-confirm">Email to confirm</span>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h2 class="eyebrow">When we gather</h2>
+          <ul class="footer-list">
+            <li>Sundays &mdash; <span class="to-confirm">time</span></li>
+            <li>Wednesdays &mdash; <span class="to-confirm">time</span></li>
+            <li>
+              Every second Sunday, <time>8:00am</time><br />
+              <span class="meta">Blessing the Work of Your Hands</span>
+            </li>
+          </ul>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer">
+          <h2 class="eyebrow">Pages</h2>
+          <ul class="footer-list footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/events.html">Events</a></li>
+            <li><a href="../pages/gallery.html">Gallery</a></li>
+            <li><a href="../pages/gethsemane.html">Gethsemane</a></li>
+            <li><a href="../pages/app.html">Church app</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-base gutter">
+        <p class="meta">
+          &copy; <span data-year>2026</span> TwainMan Ministry International.
+        </p>
+        <p class="meta footer-social">
+          <span class="to-confirm">Social accounts to confirm</span>
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="../assets/js/main.js"></script>
+
+  </body>
+</html>

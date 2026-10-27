@@ -1,0 +1,197 @@
+<!---
+title: The church app &mdash; TwainMan Ministry International
+description: TwainMan Ministry is the congregation's app: sermons and study, discipleship courses, events, prayer requests, community groups, giving and announcements.
+--->
+      <header class="page-header gutter">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="{{BASE}}index.html">Home</a></li>
+            <li aria-current="page">Church app</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">The church app</p>
+        <h1 class="display-lg">The house,<br />in your pocket.</h1>
+        <p class="lede measure">
+          TwainMan Ministry is a free app for the congregation. It carries the
+          same teaching, the same calendar and the same prayer list that the
+          hall does &mdash; into the rest of your week.
+        </p>
+      </header>
+
+      <!-- @component: app-download ---------------------------------------- -->
+      <section class="page-section gutter" aria-labelledby="inside-title">
+        <div class="app-inner">
+          <div class="app-body" data-reveal>
+            <p class="eyebrow">What is inside</p>
+            <h2 class="display-md" id="inside-title">Seven things.</h2>
+
+            <!-- @loop: $app->features -->
+            <ul class="app-features">
+              <li>Sermons and study</li>
+              <li>Discipleship courses</li>
+              <li>Events, added to your calendar</li>
+              <li>Prayer requests</li>
+              <li>Community groups</li>
+              <li>Giving</li>
+              <li>Announcements</li>
+            </ul>
+
+            <p class="app-stores meta">
+              <span class="to-confirm">Store links to confirm</span>
+              &mdash; App&nbsp;Store and Google&nbsp;Play badges will appear
+              here once the app is published and the links are supplied. No
+              download link is shown until there is a real one.
+            </p>
+          </div>
+
+          <!-- The phone shows the app's actual Home screen, rebuilt from the
+               app's own design tokens. Nothing in it is a feature the app does
+               not have. -->
+          <div class="app-phone-wrap" data-reveal data-phone>
+            <div
+              class="app-phone"
+              role="img"
+              aria-label="The TwainMan Ministry app, showing the Home screen: today's Scripture, a featured teaching and what is on."
+            >
+              <div class="phone-screen">
+                <div class="phone-statusbar" aria-hidden="true">
+                  <span>9:41</span>
+                  <span class="phone-statusbar-icons"
+                    ><i></i><i></i><i></i
+                  ></span>
+                </div>
+
+                <div class="phone-header" aria-hidden="true">
+                  <span class="phone-title">Home</span>
+                  <span class="phone-avatar"></span>
+                </div>
+
+                <div class="phone-band phone-band-gold" aria-hidden="true">
+                  <span class="phone-eyebrow">Today</span>
+                  <p class="phone-scripture">
+                    &ldquo;I was glad when they said unto me, Let us go into the
+                    house of the <span class="sc">Lord</span>.&rdquo;
+                  </p>
+                  <span class="phone-meta">Psalm 122:1</span>
+                </div>
+
+                <div class="phone-plate" aria-hidden="true">
+                  <span class="phone-eyebrow phone-eyebrow-gold"
+                    >Featured teaching</span
+                  >
+                  <p class="phone-plate-title">
+                    Blessing the Work of Your Hands
+                  </p>
+                  <div class="phone-plate-row">
+                    <span class="phone-play"></span>
+                    <span class="phone-meta-light"
+                      >Pastor Patrick Evbomoen</span
+                    >
+                  </div>
+                </div>
+
+                <div class="phone-band" aria-hidden="true">
+                  <span class="phone-eyebrow">What is on</span>
+                  <div class="phone-row">
+                    <span class="phone-date"><b>2nd</b><i>Sun</i></span>
+                    <span class="phone-row-text"
+                      ><b>Blessing the Work of Your Hands</b
+                      ><i>8:00am &middot; Main hall</i></span
+                    >
+                  </div>
+                  <div class="phone-rule"></div>
+                  <div class="phone-row">
+                    <span class="phone-date phone-date-empty"></span>
+                    <span class="phone-row-text"
+                      ><b>Nothing else published</b
+                      ><i>Dates appear as they are set</i></span
+                    >
+                  </div>
+                </div>
+
+                <div class="phone-tabs" aria-hidden="true">
+                  <span class="is-active">Home</span><span>Discover</span
+                  ><span>Community</span><span>Give</span><span>Profile</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- @component: app/detail ------------------------------------------ -->
+      <section
+        class="page-section gutter"
+        id="study"
+        aria-labelledby="study-title"
+        style="background-color: var(--color-band-gold)"
+      >
+        <div class="prose-block">
+          <div data-reveal>
+            <p class="eyebrow">Teaching &amp; study</p>
+            <h2 class="display-md" id="study-title">
+              The sermon library and the courses.
+            </h2>
+          </div>
+          <div data-reveal>
+            <p class="measure">
+              Sermons can be listened to with the screen off, saved for later
+              and picked up where you left them. Discipleship courses run in
+              lessons, with study notes and short quizzes.
+            </p>
+            <p class="measure">
+              Recordings from the 2024 Gethsemane Camp Meeting were being edited
+              for the library.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="page-section gutter"
+        id="prayer"
+        aria-labelledby="prayer-title"
+      >
+        <div class="prose-block">
+          <div data-reveal>
+            <p class="eyebrow">Prayer</p>
+            <h2 class="display-md" id="prayer-title">Send a request.</h2>
+          </div>
+          <div data-reveal>
+            <p class="measure">
+              Prayer requests go to the prayer ministry through the app. You can
+              send one for yourself or on behalf of someone else.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="page-section gutter"
+        id="community"
+        aria-labelledby="community-title"
+        style="background-color: var(--color-band-purple)"
+      >
+        <div class="prose-block">
+          <div data-reveal>
+            <p class="eyebrow">Community &amp; giving</p>
+            <h2 class="display-md" id="community-title">
+              Groups, announcements, and giving.
+            </h2>
+          </div>
+          <div data-reveal>
+            <p class="measure">
+              Find a group that meets near you, read the church's
+              announcements, and give &mdash; all from the same place.
+            </p>
+            <div class="event-actions">
+              <a class="btn btn-primary" href="{{BASE}}pages/about.html#visit"
+                >Visit the church</a
+              >
+              <a class="btn btn-ghost" href="{{BASE}}pages/events.html"
+                >What is on</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>

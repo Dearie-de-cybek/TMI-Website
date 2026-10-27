@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The church app &mdash; TwainMan Ministry International</title>
+    <meta name="description" content="TwainMan Ministry is the congregation's app: sermons and study, discipleship courses, events, prayer requests, community groups, giving and announcements." />
+    <meta name="theme-color" content="#f8f5f0" />
+    <link rel="icon" href="../assets/images/photos/wordmark.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/output.css" />
+
+    <!-- Decided before first paint so content never flashes in and back out.
+         Without JavaScript, or with reduced motion, nothing is ever hidden. -->
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js-reveal");
+      }
+    </script>
+
+
+
+    <!--
+      Only facts the church has published itself. Service times, telephone and
+      social accounts are deliberately absent until the church supplies them.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Church",
+        "name": "TwainMan Ministry International",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ambrose Omafuvwe Street, opposite Building Material Market, OKP Road",
+          "addressLocality": "Asaba",
+          "addressRegion": "Delta State",
+          "addressCountry": "NG"
+        }
+      }
+    </script>
+  
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- @component: navigation -------------------------------------------- -->
+    <header class="site-header" data-header>
+      <nav class="site-nav gutter" aria-label="Primary">
+        <a class="nav-wordmark" href="../index.html" data-nav="home">
+          <img
+            src="../assets/images/photos/wordmark.png"
+            width="528"
+            height="204"
+            alt="TwainMan Ministry International"
+          />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="../index.html" data-nav="home">Home</a></li>
+          <li><a href="../pages/about.html" data-nav="about">About</a></li>
+          <li><a href="../pages/events.html" data-nav="events">Events</a></li>
+          <li><a href="../pages/gallery.html" data-nav="gallery">Gallery</a></li>
+          <li><a href="../pages/gethsemane.html" data-nav="gethsemane">Gethsemane</a></li>
+          <li><a href="../pages/app.html" data-nav="app" aria-current="page">Church app</a></li>
+        </ul>
+
+        <a class="btn btn-primary nav-cta" href="../pages/about.html#visit"
+          >Plan your visit</a
+        >
+
+        <button
+          class="nav-toggle"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"
+            ><span></span><span></span></span
+          >
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- @component: navigation (mobile overlay) ---------------------------- -->
+    <div class="mobile-menu on-plum" id="mobile-menu" data-menu hidden>
+      <div class="mobile-menu-inner gutter grain grain-light">
+        <p class="eyebrow">TwainMan Ministry International</p>
+        <ul class="mobile-menu-links">
+          <li><span class="numeral">01</span><a href="../index.html" data-nav="home">Home</a></li>
+          <li>
+            <span class="numeral">02</span><a href="../pages/about.html" data-nav="about">About</a>
+          </li>
+          <li>
+            <span class="numeral">03</span><a href="../pages/events.html" data-nav="events">Events</a>
+          </li>
+          <li>
+            <span class="numeral">04</span
+            ><a href="../pages/gallery.html" data-nav="gallery">Gallery</a>
+          </li>
+          <li>
+            <span class="numeral">05</span
+            ><a href="../pages/gethsemane.html" data-nav="gethsemane">Gethsemane</a>
+          </li>
+          <li>
+            <span class="numeral">06</span><a href="../pages/app.html" data-nav="app" aria-current="page">Church app</a>
+          </li>
+        </ul>
+        <hr class="rule" />
+        <a class="btn btn-gold mobile-menu-cta" href="../pages/about.html#visit"
+          >Plan your visit</a
+        >
+        <p class="mobile-menu-address meta" data-content="church.addressOneLine">
+          Ambrose Omafuvwe Street, Opposite Building Material Market, OKP Road,
+          Asaba
+        </p>
+      </div>
+    </div>
+
+    <main id="main">
+<header class="page-header gutter">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li aria-current="page">Church app</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">The church app</p>
+        <h1 class="display-lg">The house,<br />in your pocket.</h1>
+        <p class="lede measure">
+          TwainMan Ministry is a free app for the congregation. It carries the
+          same teaching, the same calendar and the same prayer list that the
+          hall does &mdash; into the rest of your week.
+        </p>
+      </header>
+
+      <!-- @component: app-download ---------------------------------------- -->
+      <section class="page-section gutter" aria-labelledby="inside-title">
+        <div class="app-inner">
+          <div class="app-body" data-reveal>
+            <p class="eyebrow">What is inside</p>
+            <h2 class="display-md" id="inside-title">Seven things.</h2>
+
+            <!-- @loop: $app->features -->
+            <ul class="app-features">
+              <li>Sermons and study</li>
+              <li>Discipleship courses</li>
+              <li>Events, added to your calendar</li>
+              <li>Prayer requests</li>
+              <li>Community groups</li>
+              <li>Giving</li>
+              <li>Announcements</li>
+            </ul>
+
+            <p class="app-stores meta">
+              <span class="to-confirm">Store links to confirm</span>
+              &mdash; App&nbsp;Store and Google&nbsp;Play badges will appear
+              here once the app is published and the links are supplied. No
+              download link is shown until there is a real one.
+            </p>
+          </div>
+
+          <!-- The phone shows the app's actual Home screen, rebuilt from the
+               app's own design tokens. Nothing in it is a feature the app does
+               not have. -->
+          <div class="app-phone-wrap" data-reveal data-phone>
+            <div
+              class="app-phone"
+              role="img"
+              aria-label="The TwainMan Ministry app, showing the Home screen: today's Scripture, a featured teaching and what is on."
+            >
+              <div class="phone-screen">
+                <div class="phone-statusbar" aria-hidden="true">
+                  <span>9:41</span>
+                  <span class="phone-statusbar-icons"
+                    ><i></i><i></i><i></i
+                  ></span>
+                </div>
+
+                <div class="phone-header" aria-hidden="true">
+                  <span class="phone-title">Home</span>
+                  <span class="phone-avatar"></span>
+                </div>
+
+                <div class="phone-band phone-band-gold" aria-hidden="true">
+                  <span class="phone-eyebrow">Today</span>
+                  <p class="phone-scripture">
+                    &ldquo;I was glad when they said unto me, Let us go into the
+                    house of the <span class="sc">Lord</span>.&rdquo;
+                  </p>
+                  <span class="phone-meta">Psalm 122:1</span>
+                </div>
+
+                <div class="phone-plate" aria-hidden="true">
+                  <span class="phone-eyebrow phone-eyebrow-gold"
+                    >Featured teaching</span
+                  >
+                  <p class="phone-plate-title">
+                    Blessing the Work of Your Hands
+                  </p>
+                  <div class="phone-plate-row">
+                    <span class="phone-play"></span>
+                    <span class="phone-meta-light"
+                      >Pastor Patrick Evbomoen</span
+                    >
+                  </div>
+                </div>
+
+                <div class="phone-band" aria-hidden="true">
+                  <span class="phone-eyebrow">What is on</span>
+                  <div class="phone-row">
+                    <span class="phone-date"><b>2nd</b><i>Sun</i></span>
+                    <span class="phone-row-text"
+                      ><b>Blessing the Work of Your Hands</b
+                      ><i>8:00am &middot; Main hall</i></span
+                    >
+                  </div>
+                  <div class="phone-rule"></div>
+                  <div class="phone-row">
+                    <span class="phone-date phone-date-empty"></span>
+                    <span class="phone-row-text"
+                      ><b>Nothing else published</b
+                      ><i>Dates appear as they are set</i></span
+                    >
+                  </div>
+                </div>
+
+                <div class="phone-tabs" aria-hidden="true">
+                  <span class="is-active">Home</span><span>Discover</span
+                  ><span>Community</span><span>Give</span><span>Profile</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- @component: app/detail ------------------------------------------ -->
+      <section
+        class="page-section gutter"
+        id="study"
+        aria-labelledby="study-title"
+        style="background-color: var(--color-band-gold)"
+      >
+        <div class="prose-block">
+          <div data-reveal>
+            <p class="eyebrow">Teaching &amp; study</p>
+            <h2 class="display-md" id="study-title">
+              The sermon library and the courses.
+            </h2>
+          </div>
+          <div data-reveal>
+            <p class="measure">
+              Sermons can be listened to with the screen off, saved for later
+              and picked up where you left them. Discipleship courses run in
+              lessons, with study notes and short quizzes.
+            </p>
+            <p class="measure">
+              Recordings from the 2024 Gethsemane Camp Meeting were being edited
+              for the library.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="page-section gutter"
+        id="prayer"
+        aria-labelledby="prayer-title"
+      >
+        <div class="prose-block">
+          <div data-reveal>
+            <p class="eyebrow">Prayer</p>
+            <h2 class="display-md" id="prayer-title">Send a request.</h2>
+          </div>
+          <div data-reveal>
+            <p class="measure">
+              Prayer requests go to the prayer ministry through the app. You can
+              send one for yourself or on behalf of someone else.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="page-section gutter"
+        id="community"
+        aria-labelledby="community-title"
+        style="background-color: var(--color-band-purple)"
+      >
+        <div class="prose-block">
+          <div data-reveal>
+            <p class="eyebrow">Community &amp; giving</p>
+            <h2 class="display-md" id="community-title">
+              Groups, announcements, and giving.
+            </h2>
+          </div>
+          <div data-reveal>
+            <p class="measure">
+              Find a group that meets near you, read the church's
+              announcements, and give &mdash; all from the same place.
+            </p>
+            <div class="event-actions">
+              <a class="btn btn-primary" href="../pages/about.html#visit"
+                >Visit the church</a
+              >
+              <a class="btn btn-ghost" href="../pages/events.html"
+                >What is on</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<!-- @component: footer ------------------------------------------------- -->
+    <footer class="site-footer on-plum grain grain-light">
+      <div class="footer-inner gutter">
+        <div class="footer-identity">
+          <img
+            class="footer-wordmark"
+            src="../assets/images/photos/wordmark.png"
+            width="528"
+            height="204"
+            loading="lazy"
+            alt="TwainMan Ministry International"
+          />
+          <p class="footer-scripture">
+            &ldquo;I was glad when they said unto me, Let us go into the house of
+            the <span class="sc">Lord</span>.&rdquo;
+            <span class="meta">Psalm 122:1</span>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h2 class="eyebrow">Find us</h2>
+          <address class="footer-address">
+            <span data-content="church.street">Ambrose Omafuvwe Street</span><br />
+            <span data-content="church.landmark"
+              >Opposite Building Material Market, OKP Road</span
+            ><br />
+            <span data-content="church.city">Asaba</span>,
+            <span data-content="church.region">Delta State</span><br />
+            <span data-content="church.country">Nigeria</span>
+          </address>
+          <p class="footer-confirm">
+            <span class="to-confirm">Telephone to confirm</span><br />
+            <span class="to-confirm">Email to confirm</span>
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h2 class="eyebrow">When we gather</h2>
+          <ul class="footer-list">
+            <li>Sundays &mdash; <span class="to-confirm">time</span></li>
+            <li>Wednesdays &mdash; <span class="to-confirm">time</span></li>
+            <li>
+              Every second Sunday, <time>8:00am</time><br />
+              <span class="meta">Blessing the Work of Your Hands</span>
+            </li>
+          </ul>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer">
+          <h2 class="eyebrow">Pages</h2>
+          <ul class="footer-list footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/events.html">Events</a></li>
+            <li><a href="../pages/gallery.html">Gallery</a></li>
+            <li><a href="../pages/gethsemane.html">Gethsemane</a></li>
+            <li><a href="../pages/app.html">Church app</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-base gutter">
+        <p class="meta">
+          &copy; <span data-year>2026</span> TwainMan Ministry International.
+        </p>
+        <p class="meta footer-social">
+          <span class="to-confirm">Social accounts to confirm</span>
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="../assets/js/main.js"></script>
+
+  </body>
+</html>

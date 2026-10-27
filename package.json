@@ -1,0 +1,19 @@
+{
+  "name": "twainman-ministry-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TwainMan Ministry International \u2014 public website. Static HTML + Tailwind + vanilla JS, structured for a later Laravel/Blade migration.",
+  "scripts": {
+    "pages": "node scripts/build-pages.mjs",
+    "css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css",
+    "images": "python scripts/build-images.py",
+    "build": "npm run pages && npm run css -- --minify",
+    "dev": "npm run pages && tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",
+    "serve": "python -m http.server 4173",
+    "start": "npm run build && npm run serve"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
