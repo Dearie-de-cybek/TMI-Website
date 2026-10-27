@@ -143,34 +143,28 @@
       <section class="hero" data-hero aria-label="Welcome">
         <div class="hero-track">
           <div class="hero-stage">
-            <!-- Layer A: the textured upper zone, ~20% of the opening view -->
+            <!-- Layer A: the textured upper zone.
+                 No copy here by design: it is a tactile surface carrying a
+                 scattered constellation of Christian marks, drawn as line art
+                 so they stay crisp at any size. Every mark is a historic
+                 symbol of the faith, not invented branding. Decorative, so
+                 the whole layer is hidden from assistive technology. -->
             <div class="hero-crown grain" data-hero-crown>
-              <div class="hero-crown-inner gutter">
-                <p class="eyebrow hero-crown-place">
-                  Asaba &middot; Delta State
-                </p>
-
-                <p class="hero-scripture">
-                  <span class="hero-scripture-text"
-                    >&ldquo;I was glad when they said unto me, Let us go into
-                    the house of the <span class="sc">Lord</span>.&rdquo;</span
-                  >
-                  <span class="hero-scripture-ref">Psalm 122:1</span>
-                </p>
-
-                <svg
-                  class="hero-cross"
-                  viewBox="0 0 24 40"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    d="M12 0.5v39M2 11h20"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
-                  />
-                </svg>
+              <div class="hero-crown-inner" aria-hidden="true">
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-cross" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-fish" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-chi-rho" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-wheat" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-dove" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-star" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-book" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-crook" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-chalice" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-flame" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-anchor" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-thorns" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-jerusalem" /></svg>
+                <svg class="hero-mark" viewBox="0 0 48 48"><use href="#mk-alpha-omega" /></svg>
               </div>
             </div>
 
@@ -312,10 +306,99 @@
              the value below is the opening state, used as-is without JS. -->
         <svg class="hero-defs" aria-hidden="true" focusable="false">
           <defs>
+            <!-- Christian marks for the hero's upper zone. 48x48 each, line
+                 art on a 1.6 stroke so they hold together at 24-44px. -->
+            <g id="mk-src" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round"></g>
+
+            <symbol id="mk-cross" viewBox="0 0 48 48">
+              <path d="M24 5v38M13 17h22" />
+            </symbol>
+
+            <symbol id="mk-chi-rho" viewBox="0 0 48 48">
+              <path d="M24 7v34M24 10h5.5a6.5 6.5 0 0 1 0 13H24M12 41 36 21M36 41 12 21" />
+            </symbol>
+
+            <symbol id="mk-fish" viewBox="0 0 48 48">
+              <path d="M44 24c-6.5-9-18.5-13-31-10 6 5 6 15 0 20 12.5 3 24.5-1 31-10Z" />
+              <circle cx="36.5" cy="21" r="1.1" fill="currentColor" stroke="none" />
+            </symbol>
+
+            <symbol id="mk-dove" viewBox="0 0 48 48">
+              <!-- Filled: an organic shape this small reads as a bird in
+                   silhouette and as a tangle in outline. -->
+              <g fill="currentColor" stroke="none">
+                <path d="M23.4 17.6C17.8 9.4 9.6 5.8 2 7.4c2.4 8.6 9.4 14.6 19 16.2z" />
+                <path d="M24.6 17.6C30.2 9.4 38.4 5.8 46 7.4c-2.4 8.6-9.4 14.6-19 16.2z" />
+                <path d="M24 15.2c2.1 0 3.4 1.8 3.1 4.3l-1.6 13.1L24 43l-1.5-10.4-1.6-13.1c-.3-2.5 1-4.3 3.1-4.3z" />
+                <circle cx="24" cy="11.4" r="3.4" />
+                <path d="M26.8 9.9 32 8.6l-4.6 3.4z" />
+              </g>
+            </symbol>
+
+            <symbol id="mk-flame" viewBox="0 0 48 48">
+              <path d="M24 4c7 9.5 12.5 14.5 12.5 21.5a12.5 12.5 0 0 1-25 0C11.5 18.5 17 13.5 24 4Z" />
+              <path d="M24 22c2.6 3.6 4.6 5.6 4.6 8.2a4.6 4.6 0 0 1-9.2 0c0-2.6 2-4.6 4.6-8.2Z" />
+            </symbol>
+
+            <symbol id="mk-thorns" viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="12.5" />
+              <!-- Barbs set at a slant, in pairs: radial spikes read as a sun. -->
+              <path d="M24.0 13.5 31.7 6.7M24.0 13.5 19.7 10.1M32.2 17.5 42.4 19.2M32.2 17.5 32.2 12.0M34.2 26.3 39.2 35.4M34.2 26.3 38.5 22.9M28.6 33.5 24.5 43.0M28.6 33.5 33.9 34.6M19.4 33.5 9.5 36.3M19.4 33.5 21.9 38.3M13.8 26.3 5.4 20.3M13.8 26.3 11.4 31.3M15.8 17.5 15.3 7.1M15.8 17.5 10.5 18.7" />
+            </symbol>
+
+            <symbol id="mk-book" viewBox="0 0 48 48">
+              <path d="M24 15c-4.5-3-10-4.5-16-4.5v23C14 33.5 19.5 35 24 38c4.5-3 10-4.5 16-4.5v-23c-6 0-11.5 1.5-16 4.5Z" />
+              <path d="M24 15v23" />
+            </symbol>
+
+            <symbol id="mk-chalice" viewBox="0 0 48 48">
+              <path d="M13 11h22c0 9.5-4.5 14.5-11 15.5-6.5-1-11-6-11-15.5Z" />
+              <path d="M24 26.5V36M15.5 38h17" />
+            </symbol>
+
+            <symbol id="mk-anchor" viewBox="0 0 48 48">
+              <circle cx="24" cy="11" r="4" />
+              <path d="M24 15v26M14 21h20" />
+              <path d="M9 27c0 7.8 6.7 13 15 13s15-5.2 15-13" />
+              <path d="m5.6 25.4 3.4 1.6-.4 3.8M42.4 25.4 39 27l.4 3.8" />
+            </symbol>
+
+            <symbol id="mk-wheat" viewBox="0 0 48 48">
+              <path d="M24 44V20" />
+              <path d="M24 19c-3.5-2.5-5-6.5-4-10.5 3.5 1 5.5 5.5 4 10.5Z" />
+              <path d="M24 19c3.5-2.5 5-6.5 4-10.5-3.5 1-5.5 5.5-4 10.5Z" />
+              <path d="M23 28c-4.5-1.5-8-5.5-8-10 4.5 0 8.5 4.5 8 10Z" />
+              <path d="M25 28c4.5-1.5 8-5.5 8-10-4.5 0-8.5 4.5-8 10Z" />
+              <path d="M23 37c-4.5-1.5-8-5.5-8-10 4.5 0 8.5 4.5 8 10Z" />
+              <path d="M25 37c4.5-1.5 8-5.5 8-10-4.5 0-8.5 4.5-8 10Z" />
+            </symbol>
+
+            <symbol id="mk-star" viewBox="0 0 48 48">
+              <path d="M24.0 3.0 L27.3 16.1 L38.8 9.2 L31.9 20.7 L45.0 24.0 L31.9 27.3 L38.8 38.8 L27.3 31.9 L24.0 45.0 L20.7 31.9 L9.2 38.8 L16.1 27.3 L3.0 24.0 L16.1 20.7 L9.2 9.2 L20.7 16.1Z" />
+            </symbol>
+
+            <!-- The Good Shepherd. A fourth cross form would have crowded
+                 the set; a crook reads instantly and at any size. -->
+            <symbol id="mk-crook" viewBox="0 0 48 48">
+              <path d="M17 44V22a8 8 0 0 1 16 0v3.5" />
+            </symbol>
+
+            <symbol id="mk-jerusalem" viewBox="0 0 48 48">
+              <path d="M24 13v22M13 24h22M20 13h8M20 35h8M13 20v8M35 20v8" />
+              <path d="M5 8h5M7.5 5.5v5M38 8h5M40.5 5.5v5M5 40h5M7.5 37.5v5M38 40h5M40.5 37.5v5" />
+            </symbol>
+
+            <symbol id="mk-alpha-omega" viewBox="0 0 48 48">
+              <text x="24" y="33" text-anchor="middle" font-size="26"
+                    font-family="Fraunces, Georgia, serif" fill="currentColor"
+                    stroke="none">&#913;&#937;</text>
+            </symbol>
+
             <clipPath id="hero-arch" clipPathUnits="objectBoundingBox">
               <path
                 data-hero-arch
-                d="M0,1 V0.17 C0.10,0.094 0.24,0 0.40,0 C0.58,0 0.74,0.102 1,0.153 V1 Z"
+                d="M0,1 V0.0238 C0.0700,0.0034 0.1700,0 0.2900,0.0119 C0.5200,0.0476 0.7600,0.1224 1,0.1700 V1 Z"
               />
             </clipPath>
           </defs>

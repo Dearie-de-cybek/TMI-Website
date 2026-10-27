@@ -56,16 +56,19 @@ if (hero) {
   const smoothstep = (t) => t * t * (3 - 2 * t);
 
   /**
-   * The arch that clips the photograph: a broad crest set left of centre, with
-   * a steeper left shoulder. `depth` 0 flattens it to a straight edge, which is
-   * what the risen state wants.
+   * The arch that clips the photograph: it crests early, over the headline,
+   * then sweeps away to its full depth at the right. The crest is on that side
+   * deliberately - the copy is set hard left, so the photograph has to reach
+   * highest exactly there or the type would run onto bare paper.
+   * `depth` 0 flattens it to a straight edge, which is what the risen state
+   * wants.
    */
   function archFor(depth) {
     const n = (value) => value.toFixed(4);
     return (
-      `M0,1 V${n(depth)} ` +
-      `C0.1000,${n(depth * 0.55)} 0.2400,0 0.4000,0 ` +
-      `C0.5800,0 0.7400,${n(depth * 0.6)} 1,${n(depth * 0.9)} V1 Z`
+      `M0,1 V${n(depth * 0.14)} ` +
+      `C0.0700,${n(depth * 0.02)} 0.1700,0 0.2900,${n(depth * 0.07)} ` +
+      `C0.5200,${n(depth * 0.28)} 0.7600,${n(depth * 0.72)} 1,${n(depth)} V1 Z`
     );
   }
 

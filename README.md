@@ -122,6 +122,9 @@ flame, the three-line lock-up — is the church's real mark.
 tiled under the hero's upper zone and the plum plates. It is a surface, not an
 animation.
 
+Psalm 122:1 is quoted in the footer and in the app mock-up rather than in the
+hero band.
+
 ### Fonts
 
 Fraunces (display) and Inter (text), from Google Fonts, with local serif and
@@ -169,8 +172,12 @@ Two deliberate departures from the app's tokens, both for contrast on the web:
 A sticky stage with three photographic scenes, driven by ordinary scrolling —
 nothing is intercepted and there are no slide controls.
 
-1. **Opening** — a grain-textured upper zone (about a fifth of the view) holding
-   Psalm 122:1, with the photograph resting below it behind an asymmetric arch.
+1. **Opening** — a grain-textured upper zone, about a third of the view,
+   carrying a scattered constellation of fourteen Christian marks drawn as
+   line art (cross, Chi-Rho, ichthys, dove, flame, crown of thorns, Scripture,
+   chalice, anchor, wheat, star of Bethlehem, shepherd's crook, Jerusalem
+   cross, Alpha and Omega). No copy sits in this band. Below it the photograph
+   rests behind an asymmetric arch.
 2. **Expansion** — the photograph rises, the arch flattens, and the textured
    zone is covered.
 3. **Scenes** — three photographs dissolve in turn, each with its own headline,
@@ -187,6 +194,17 @@ clip path's opening `d`.
 Scene 2 is the dark, close portrait on purpose. Scenes 1 and 3 are both wide
 crops of the same gathering, and dissolving one into the other reads as a
 double exposure rather than a change of scene.
+
+The arch crests early — over the headline, which is set hard left — and sweeps
+away to its full depth on the right. That asymmetry is structural, not just
+decorative: the copy would otherwise run onto bare paper where the arch dips.
+
+The marks are defined once as `<symbol>` elements in the hero's `<defs>` and
+placed with `<use>`; their position, size, tilt and weight live in
+`layout.css` (`.hero-mark:nth-child(n)`), so the markup stays a plain list and
+the composition is tuned in one place. Fourteen on a wide screen, twelve below
+1100px, five on a phone. The whole band is `aria-hidden` — it is a surface,
+not content — and it carries no animation of its own.
 
 Only `transform`, `opacity` and the clip path's `d` change while it plays, so
 no frame causes a layout. One scroll listener, one `requestAnimationFrame`,

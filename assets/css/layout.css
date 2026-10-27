@@ -221,11 +221,13 @@
   /* How much scrolling each photographic scene is given. Proportional to the
      number of scenes, not an arbitrary tall block. */
   --scene-scroll: 70vh;
-  /* Where the photograph rests before the page moves: low enough to leave the
-     textured zone (roughly the top fifth) readable, bounded in px so a short
-     window cannot crush it. */
-  --photo-rest: clamp(184px, 21svh, 236px);
-  --crown-height: 20svh;
+  /* Where the photograph rests before the page moves. The textured zone above
+     it is now a composition in its own right rather than a line of type, so it
+     is given about a third of the opening view. Bounded in px so a short
+     window cannot crush it and a tall one cannot stretch it. */
+  --photo-rest: clamp(210px, 32svh, 380px);
+  /* How much of that band the fixed header occupies. */
+  --nav-clear: clamp(86px, 10vh, 104px);
 }
 .hero-track {
   position: relative;
@@ -249,55 +251,58 @@
   z-index: 1;
   background-color: var(--color-ivory);
 }
+/* The marks sit between the header and the top of the photograph. */
 .hero-crown-inner {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--nav-clear);
+  height: calc(var(--photo-rest) - var(--nav-clear));
   z-index: 1;
-  /* Height is content-led and the photograph rests just below it, so the
-     Scripture is never half-covered on a short viewport. */
-  /* Clears the fixed header, which is 96px tall at its largest. */
-  padding-top: clamp(92px, 11vh, 108px);
-  padding-bottom: 0.85rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 1rem 2rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-gold) 30%, transparent);
   transition: opacity var(--duration-swap) linear;
 }
-.hero-crown-place {
-  grid-column: 1;
-}
-.hero-scripture {
-  grid-column: 1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 0.9rem;
-  font-family: var(--font-display);
-  font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 24;
-  font-style: italic;
-  font-size: clamp(0.9375rem, 1.5vw, 1.1875rem);
-  line-height: 1.4;
-  color: var(--color-ink-soft);
-  max-width: 62ch;
-}
-.hero-scripture-ref {
-  font-family: var(--font-sans);
-  font-style: normal;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
+
+/* A scattered constellation, not a row: every mark has its own place, size,
+   tilt and weight, set once here so the markup stays a plain list. */
+.hero-mark {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
   color: var(--color-gold);
-  white-space: nowrap;
+  opacity: var(--o);
+  transform: translate(-50%, -50%) rotate(var(--r, 0deg));
 }
-.hero-cross {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  width: 20px;
-  height: 34px;
-  color: color-mix(in srgb, var(--color-gold) 75%, transparent);
-  justify-self: end;
+.hero-mark use {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-mark:nth-child(1)     { --x: 3.5%;   --y: 30%;  --s: 48px;  --r: -7deg;  --o: 0.50; }
+.hero-mark:nth-child(2)     { --x: 10%;    --y: 72%;  --s: 36px;  --r: 6deg;   --o: 0.32; }
+.hero-mark:nth-child(3)     { --x: 16%;    --y: 17%;  --s: 32px;  --r: -3deg;  --o: 0.38; }
+.hero-mark:nth-child(4)     { --x: 23%;    --y: 57%;  --s: 42px;  --r: -12deg; --o: 0.30; }
+.hero-mark:nth-child(5)     { --x: 30.5%;  --y: 25%;  --s: 46px;  --r: 3deg;   --o: 0.30; }
+.hero-mark:nth-child(6)     { --x: 36%;    --y: 77%;  --s: 28px;  --r: 0deg;   --o: 0.32; }
+.hero-mark:nth-child(7)     { --x: 44%;    --y: 35%;  --s: 40px;  --r: -5deg;  --o: 0.36; }
+.hero-mark:nth-child(8)     { --x: 51%;    --y: 74%;  --s: 34px;  --r: 9deg;   --o: 0.34; }
+.hero-mark:nth-child(9)     { --x: 58%;    --y: 15%;  --s: 38px;  --r: 0deg;   --o: 0.38; }
+.hero-mark:nth-child(10)    { --x: 65%;    --y: 61%;  --s: 36px;  --r: -6deg;  --o: 0.40; }
+.hero-mark:nth-child(11)    { --x: 72%;    --y: 27%;  --s: 40px;  --r: 7deg;   --o: 0.34; }
+.hero-mark:nth-child(12)    { --x: 80%;    --y: 71%;  --s: 44px;  --r: 0deg;   --o: 0.28; }
+.hero-mark:nth-child(13)    { --x: 88%;    --y: 20%;  --s: 32px;  --r: 0deg;   --o: 0.36; }
+.hero-mark:nth-child(14)    { --x: 95.5%;  --y: 59%;  --s: 36px;  --r: 0deg;   --o: 0.30; }
+
+/* Fewer marks as the band narrows, so the scatter never becomes a crowd. */
+@media (max-width: 1100px) {
+  .hero-mark:nth-child(6),
+  .hero-mark:nth-child(14) {
+    display: none;
+  }
 }
 
 /* Layer B - the half-bleed photograph. Pushed down at rest, it rises on scroll
@@ -371,7 +376,7 @@
   position: absolute;
   inset: auto 0 0 0;
   z-index: 3;
-  height: calc(100% - var(--crown-height));
+  height: calc(100% - var(--photo-rest));
   display: flex;
   align-items: flex-end;
   padding-bottom: clamp(2.5rem, 7vh, 5rem);
@@ -396,9 +401,10 @@
 }
 .hero-state h1 {
   margin: 0.5rem 0 0;
-  /* A little tighter than display-xl so the supporting line and the actions
-     always have room inside the stage. */
-  font-size: clamp(2.5rem, 6.2vw, 5.5rem);
+  /* Tighter than display-xl, and capped against the viewport's HEIGHT as well
+     as its width: the headline shares the stage with the band of marks above
+     the photograph, so on a short window it has to give way. */
+  font-size: min(clamp(2.5rem, 6.2vw, 5.5rem), 12svh);
   color: #fff;
   text-wrap: balance;
 }
@@ -463,23 +469,44 @@
 @media (max-width: 767px) {
   .hero {
     --scene-scroll: 52vh;
-    /* The Scripture wraps to two or three lines on a narrow screen, so the
-       photograph has to rest lower than it does on a wide one or it clips the
-       line it is meant only to meet. */
-    --photo-rest: clamp(206px, 26svh, 252px);
-    --crown-height: 23svh;
+    --photo-rest: clamp(196px, 31svh, 300px);
   }
   .hero-stage {
     min-height: 520px;
   }
-  .hero-crown-inner {
-    grid-template-columns: 1fr;
-  }
-  .hero-cross {
+  /* Five marks on a phone, placed for the narrower band rather than
+     inherited from the desktop scatter. */
+  .hero-mark {
     display: none;
   }
+  .hero-mark:nth-child(1),
+  .hero-mark:nth-child(3),
+  .hero-mark:nth-child(5),
+  .hero-mark:nth-child(7),
+  .hero-mark:nth-child(9) {
+    display: block;
+  }
+  .hero-mark:nth-child(1) { --x: 9%;  --y: 26%; --s: 40px; --r: -6deg; --o: 0.46; }
+  .hero-mark:nth-child(3) { --x: 31%; --y: 70%; --s: 30px; --r: 0deg;  --o: 0.36; }
+  .hero-mark:nth-child(5) { --x: 53%; --y: 24%; --s: 40px; --r: 3deg;  --o: 0.30; }
+  .hero-mark:nth-child(7) { --x: 75%; --y: 66%; --s: 32px; --r: -4deg; --o: 0.34; }
+  .hero-mark:nth-child(9) { --x: 93%; --y: 32%; --s: 28px; --r: 0deg;  --o: 0.36; }
   .hero-actions .btn {
     flex: 1 1 auto;
+  }
+}
+
+/* A short window - a laptop, or a browser with a lot of chrome - cannot carry
+   the full band of marks and a three-line headline. The band gives way first. */
+@media (max-height: 720px) {
+  .hero {
+    --photo-rest: clamp(168px, 27svh, 212px);
+  }
+  .hero-state h1 {
+    font-size: min(clamp(2.25rem, 5.4vw, 3.5rem), 11svh);
+  }
+  .hero-mark {
+    --s: 26px;
   }
 }
 
